@@ -1,0 +1,6 @@
+esp_nimble_hci.o: \
+ C:\Users\wisht\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\esp_port\esp-hci\src\esp_nimble_hci.c \
+ C:\Users\wisht\Documents\Arduino\libraries\NimBLE-Arduino\src/syscfg/syscfg.h \
+ C:\Users\wisht\Documents\Arduino\libraries\NimBLE-Arduino\src/nimconfig.h \
+ C:\Users\wisht\AppData\Local\Arduino15\packages\esp32\tools\esp32c5-libs\3.3.10/qio_qspi/include/sdkconfig.h \
+ C:\Users\wisht\AppData\Local\Arduino15\packages\esp32\tools\esp32c5-libs\3.3.10/include/esp_common/include/esp_idf_version.h

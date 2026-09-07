@@ -145,7 +145,7 @@ uint32_t currentTime  = 0;
 
 #ifndef HAS_MINI_SCREEN
   void brightnessInit() {
-    #ifdef HAS_SCREEN
+    #if defined(HAS_SCREEN) && !defined(MARAUDER_C5_TOUCH_LCD_28)
       BL_SETUP();
       bl_prefs.begin("backlight", false);
       bl_level_idx = bl_prefs.getUChar("level", 9);
@@ -155,7 +155,7 @@ uint32_t currentTime  = 0;
   }
 
   void brightnessCycle() {
-    #ifdef HAS_SCREEN
+    #if defined(HAS_SCREEN) && !defined(MARAUDER_C5_TOUCH_LCD_28)
       bl_level_idx = (bl_level_idx + 1) % BL_NUM_LEVELS;
       BL_SET(BL_LEVELS[bl_level_idx]);
       bl_prefs.putUChar("level", bl_level_idx);
@@ -178,7 +178,7 @@ uint32_t currentTime  = 0;
   }
 
   void brightnessSave(uint8_t level) {
-    #ifdef HAS_SCREEN
+    #if defined(HAS_SCREEN) && !defined(MARAUDER_C5_TOUCH_LCD_28)
       if (level >= BL_NUM_LEVELS) level = BL_NUM_LEVELS - 1;
       bl_level_idx = level;
       BL_SET(BL_LEVELS[bl_level_idx]);
@@ -187,13 +187,13 @@ uint32_t currentTime  = 0;
   }
 
   void backlightOn() {
-    #ifdef HAS_SCREEN
+    #if defined(HAS_SCREEN) && !defined(MARAUDER_C5_TOUCH_LCD_28)
       BL_SET(BL_LEVELS[bl_level_idx]);
     #endif
   }
 
   void backlightOff() {
-    #ifdef HAS_SCREEN
+    #if defined(HAS_SCREEN) && !defined(MARAUDER_C5_TOUCH_LCD_28)
       BL_SET(0);
     #endif
   }
@@ -231,7 +231,7 @@ uint32_t currentTime  = 0;
 void setup()
 {
   randomSeed(esp_random());
-  
+
   #ifndef DEVELOPER
     esp_log_level_set("*", ESP_LOG_NONE);
   #endif
@@ -251,7 +251,14 @@ void setup()
   while(!Serial)
     delay(10);
 
-  #ifdef HAS_C5_SD
+  // NOTE: skipped on MARAUDER_C5_TOUCH_LCD_28 - SD shares the TFT's physical
+  // SPI bus/pins here, and a second independent SPIClass object calling
+  // .begin() on the same ESP-IDF SPI host as the display's own SPIClass
+  // (c5CompatSPI() in C5CompatDisplay.h) breaks the panel entirely (backlight
+  // on, permanently blank, no crash) even though the wired pins are the same.
+  // SD already fails to mount on this board regardless, so this costs nothing
+  // right now; the display's own tft.init() will initialize the shared bus.
+  #if defined(HAS_C5_SD) && !defined(MARAUDER_C5_TOUCH_LCD_28)
     sharedSPI.begin(SD_SCK, SD_MISO, SD_MOSI);
     delay(100);
   #endif
@@ -262,7 +269,9 @@ void setup()
   #endif
   
   #ifdef HAS_SCREEN
-    pinMode(TFT_BL, OUTPUT);
+    #ifndef MARAUDER_C5_TOUCH_LCD_28
+      pinMode(TFT_BL, OUTPUT);
+    #endif
   #endif
   
   backlightOff();
@@ -356,7 +365,12 @@ void setup()
 
   buffer_obj = Buffer();
 
-  #ifndef HAS_SIMPLEX_DISPLAY
+  // Skipped on MARAUDER_C5_TOUCH_LCD_28: SD.begin() internally re-initializes
+  // the SPIClass object passed to it if it wasn't already begun, which claims
+  // the shared FSPI/SPI2 host a second time (same conflict as the sharedSPI.begin()
+  // call removed earlier) and breaks all display draws that happen after it.
+  // SD doesn't work on this board regardless right now, so skip it entirely.
+  #if !defined(HAS_SIMPLEX_DISPLAY) && !defined(MARAUDER_C5_TOUCH_LCD_28)
     #if defined(HAS_SD)
       // Do some SD stuff
       if(!sd_obj.initSD())
@@ -397,7 +411,10 @@ void setup()
     led_obj.RunSetup();
   #endif
 
-  #ifdef HAS_GPS
+  // TEMP DIAGNOSTIC: no physical GPS module connected on this board right
+  // now, and GPS UART init adds current draw/hang risk. Skip it while
+  // isolating the display glitch to a pure power-budget vs. driver issue.
+  #if defined(HAS_GPS) && !defined(MARAUDER_C5_TOUCH_LCD_28)
     gps_obj.begin();
   #endif
 

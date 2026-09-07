@@ -318,7 +318,7 @@ class MenuFunctions
     void buildButtons(Menu* menu, int starting_index = 0, const char* button_name = nullptr);
     void changeMenu(Menu* menu, bool simple_change = false);
     void drawStatusBar();
-    void displayCurrentMenu(int start_index = 0);
+    void displayCurrentMenu(int start_index = 0, bool skip_chrome = false);
     #ifndef HAS_MINI_SCREEN
       void brightnessMode();
     #endif

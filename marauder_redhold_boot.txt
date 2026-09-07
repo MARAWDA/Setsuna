@@ -1,0 +1,29 @@
+﻿ESP-ROM:esp32c5-eco3-20250704
+Build:Jul  4 2025
+rst:0x15 (USB_UART_HPSYS),boot:0x76 (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x408556b0,len:0x1258
+load:0x4084bba0,len:0xca4
+load:0x4084e5a0,len:0x315c
+entry 0x4084bba0
+ESP-ROM:esp32c5-eco3-20250704
+Build:Jul  4 2025
+rst:0x15 (USB_UART_HPSYS),boot:0x76 (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x408556b0,len:0x1258
+load:0x4084bba0,len:0xca4
+load:0x4084e5a0,len:0x315c
+entry 0x4084bba0
+E (357) MSPI Timing: Failed to allocate dummy cacheline for PSRAM memory barrier!
+ESP-IDF version is: v5.5.4
+[Touch] I2C scan:
+[Touch]   found device at 0x18
+[Touch]   found device at 0x24
+[Touch]   found device at 0x51
+[Touch]   found device at 0x58
+[Touch]   found device at 0x6B
+[Touch]   found device at 0x70
+[Touch]   found device at 0x7E
+[Touch] CST3530 initialized via CH32V003 IO expander
+[Display] tft.init() done, holding solid RED forever for visual test...
+

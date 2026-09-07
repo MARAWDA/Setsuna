@@ -1,0 +1,8 @@
+void setup() {
+#if defined(CONFIG_IDF_TARGET_ESP32C5)
+  #error MACRO_CHECK: CONFIG_IDF_TARGET_ESP32C5 IS DEFINED
+#else
+  #error MACRO_CHECK: CONFIG_IDF_TARGET_ESP32C5 IS NOT DEFINED
+#endif
+}
+void loop() {}

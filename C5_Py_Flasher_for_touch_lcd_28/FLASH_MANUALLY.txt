@@ -1,0 +1,29 @@
+Manual flash instructions - Waveshare ESP32-C5-Touch-LCD-2.8
+(build with the PSRAM null-pointer crash fix + BLE init crash guard)
+
+1) Put the board in bootloader mode:
+   - Unplug it
+   - Hold BOOT
+   - Plug USB back in while still holding BOOT
+   - Keep holding ~3 seconds after plugging in, then release
+
+2) Check it shows up as a COM port (Device Manager -> Ports).
+
+3) Install esptool if you don't have it:
+   pip install esptool
+
+EASIEST OPTION - single merged image (recommended):
+   python -m esptool --chip esp32c5 --port COM12 --baud 921600 write-flash 0x0 esp32_marauder_c5_touch_lcd_28_merged.bin
+
+(replace COM12 with whatever port it actually shows up as)
+
+ALTERNATIVE - separate images at their normal offsets:
+   python -m esptool --chip esp32c5 --port COM12 --baud 921600 write-flash ^
+     0x2000  bootloader.bin ^
+     0x8000  partitions.bin ^
+     0xe000  boot_app0.bin ^
+     0x10000 esp32_marauder_c5_touch_lcd_28.bin
+
+If it still won't stay connected long enough to flash, that's a physical
+USB/cable/port problem, not a firmware problem - the crash-loop that was
+happening before this build should no longer occur.

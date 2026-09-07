@@ -107,36 +107,10 @@ void MenuFunctions::buttonSelected(int b, int x) {
 
 void MenuFunctions::displayMenuButtons() {
   #ifdef HAS_ILI9341
-    // Draw lines to show each menu button
-    for (int i = 0; i < 3; i++) {
-
-      // Draw horizontal line on left
-      display_obj.tft.drawLine(0, 
-                              TFT_HEIGHT / 3 * (i),
-                              (TFT_WIDTH / 12) / 2,
-                              TFT_HEIGHT / 3 * (i),
-                              TFT_FARTGRAY);
-
-      // Draw horizontal line on right
-      display_obj.tft.drawLine(TFT_WIDTH - 1 - ((TFT_WIDTH / 12) / 2), 
-                              TFT_HEIGHT / 3 * (i),
-                              TFT_WIDTH,
-                              TFT_HEIGHT / 3 * (i),
-                              TFT_FARTGRAY);
-
-      // Draw vertical line on left
-      display_obj.tft.drawLine(0, 
-                              (TFT_HEIGHT / 3 * (i)) - ((TFT_WIDTH / 12) / 2),
-                              0,
-                              (TFT_HEIGHT / 3 * (i)) + ((TFT_WIDTH / 12) / 2),
-                              TFT_FARTGRAY);
-
-      // Draw vertical line on right
-      display_obj.tft.drawLine(TFT_WIDTH - 1, 
-                              (TFT_HEIGHT / 3 * (i)) - ((TFT_WIDTH / 12) / 2),
-                              TFT_WIDTH - 1,
-                              (TFT_HEIGHT / 3 * (i)) + ((TFT_WIDTH / 12) / 2),
-                              TFT_FARTGRAY);
+    // Draw the 4 visible bottom nav buttons (Up/OK/Down/Back).
+    // Geometry/labels set up in buildButtons(); this just renders them.
+    for (uint8_t i = BUTTON_ARRAY_LEN; i < BUTTON_ARRAY_LEN + 4; i++) {
+      display_obj.key[i].drawButton(false);
     }
   #endif
 }
@@ -231,9 +205,20 @@ void MenuFunctions::main(uint32_t currentTime)
       pressed = display_obj.updateTouch(&t_x, &t_y);
   #endif
 
+  // C5 idle-menu touch nav (top/middle/bottom third = UP/SELECT/DOWN) is
+  // implemented below, right after display_obj.menuButton() is called - see
+  // the MARAUDER_C5_TOUCH_LCD_28 block there. Do not short-circuit the touch
+  // path here; the normal touch/button hit-testing must still run for every
+  // other board and for the C5 bottom-bar fallback (incl. BACK).
+
 
   // Brightness gesture: hold top or bottom zone 1.5s to enter brightness mode
-  #ifdef HAS_ILI9341
+  // Brightness gesture: hold top or bottom zone 1.5s to enter brightness mode.
+  // Skipped on the C5 touch board - its menu rows span nearly the full
+  // screen height, so this blocking top/bottom-zone check was swallowing
+  // taps on the first/last couple of menu rows before the row-tap nav below
+  // ever saw them.
+  #if defined(HAS_ILI9341) && !defined(MARAUDER_C5_TOUCH_LCD_28)
     if (pressed && (wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF ||
                     wifi_scan_obj.currentScanMode == WIFI_CONNECTED)) {
       uint16_t zoneUp = TFT_HEIGHT * 25 / 100;
@@ -545,6 +530,41 @@ void MenuFunctions::main(uint32_t currentTime)
       // Detect up, down, select
       uint8_t menu_button = display_obj.menuButton(&t_x, &t_y, pressed);
 
+      #if defined(MARAUDER_C5_TOUCH_LCD_28)
+        // Direct "tap the item you want" nav: tapping anywhere on a visible
+        // menu row selects AND runs it immediately, like tapping a link.
+        // This is more reliable/obvious on this board's touch panel than
+        // guessing screen zones or hitting the small bottom bar precisely.
+        // The bottom bar (UP/OK/DN/BACK) still works for browsing without
+        // running and for BACK. Fires once on the press-down edge only, not
+        // repeatedly while held. Scoped to the idle menu only so active scan
+        // screens (which reuse UP/DOWN for channel hop, etc.) are unaffected.
+        static bool row_tap_prev_pressed = false;
+        if (pressed && !row_tap_prev_pressed &&
+            ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
+             (wifi_scan_obj.currentScanMode == WIFI_CONNECTED)) &&
+            current_menu && current_menu->list) {
+          uint16_t visible_rows = min((int)BUTTON_SCREEN_LIMIT, current_menu->list->size() - this->menu_start_index);
+          Serial.printf("[RowTap] press at (%d,%d), menu_start=%d, visible_rows=%d\n",
+                        t_x, t_y, this->menu_start_index, visible_rows);
+          bool matched = false;
+          for (uint16_t b = 0; b < visible_rows; b++) {
+            if (display_obj.key[b].contains(t_x, t_y)) {
+              uint16_t idx = this->menu_start_index + b;
+              Serial.printf("[RowTap] matched row b=%d idx=%d\n", b, idx);
+              matched = true;
+              if (idx < current_menu->list->size()) {
+                current_menu->selected = idx;
+                current_menu->list->get(idx).callable();
+              }
+              break;
+            }
+          }
+          if (!matched) Serial.println("[RowTap] no row matched");
+        }
+        row_tap_prev_pressed = pressed;
+      #endif
+
       if (menu_button > -1) {
         if (menu_button == UP_BUTTON) {
           if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
@@ -681,6 +701,13 @@ void MenuFunctions::main(uint32_t currentTime)
         }
         if(menu_button == SELECT_BUTTON) {
           current_menu->list->get(current_menu->selected).callable();
+        }
+        else if (menu_button == BACK_BUTTON) {
+          if (((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
+               (wifi_scan_obj.currentScanMode == WIFI_CONNECTED)) &&
+              (current_menu->parentMenu != NULL)) {
+            this->changeMenu(current_menu->parentMenu, true);
+          }
         }
         else {
           if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
@@ -4477,32 +4504,52 @@ void MenuFunctions::buildButtons(Menu *menu, int starting_index, const char* but
     #endif
   }
 
-  for (int i = BUTTON_ARRAY_LEN; i < BUTTON_ARRAY_LEN + 3; i++) {
-    uint16_t x = TFT_WIDTH / 2;
-    uint16_t y = TFT_HEIGHT / 3 * (i - BUTTON_ARRAY_LEN) + ((TFT_HEIGHT / 3) / 2);
-    uint16_t w = TFT_WIDTH;
-    uint16_t h = TFT_HEIGHT / 3 - 1;
+  // 4 visible bottom-bar buttons (UP/OK/DN/BACK), left to right. Hit-testing
+  // for these happens directly in MenuFunctions::main() by touch X quarter -
+  // this only sets up their drawn appearance/label.
+  for (int i = BUTTON_ARRAY_LEN; i < BUTTON_ARRAY_LEN + 4; i++) {
+    uint8_t col = i - BUTTON_ARRAY_LEN;
+    uint16_t w = TFT_WIDTH / 4;
+    uint16_t h = 32;
+    uint16_t x = w * col + (w / 2);
+    uint16_t y = TFT_HEIGHT - (h / 2);
+
+    // Keep the actual button layout exactly in the same order used by the
+    // hit-test logic: UP, OK, DOWN, BACK.
+    const char* label = (col == 0) ? "UP" : (col == 1) ? "OK" : (col == 2) ? "DN" : "BACK";
 
     display_obj.key[i].initButton(&display_obj.tft,
                                   x,
                                   y,
-                                  w,
-                                  h,
+                                  w - 2,
+                                  h - 2,
                                   TFT_LIGHTGREY,
-                                  TFT_BLACK,
-                                  TFT_BLACK,
-                                  "Chicken",
+                                  TFT_DARKGREY,
+                                  TFT_WHITE,
+                                  (char*)label,
                                   1);
   }
 }
 
-void MenuFunctions::displayCurrentMenu(int start_index)
+void MenuFunctions::displayCurrentMenu(int start_index, bool skip_chrome)
 {
   //Serial.println(F("Displaying current menu..."));
-  display_obj.clearScreen();
-  display_obj.updateBanner(current_menu->name);
-  display_obj.tft.setTextColor(TFT_LIGHTGREY, TFT_DARKGREY);
-  this->drawStatusBar();
+  if (skip_chrome) {
+    // Faster path: only clear/redraw the list row area, leave the banner,
+    // status bar and bottom nav buttons alone (they haven't changed). Only
+    // clear as many rows as are actually visible - clearing the full
+    // BUTTON_SCREEN_LIMIT height would encroach on the bottom nav bar for
+    // menus with fewer items than that limit (like our 4-item main menu).
+    uint8_t visible_rows = (current_menu && current_menu->list)
+      ? min((int)BUTTON_SCREEN_LIMIT, current_menu->list->size() - start_index)
+      : 0;
+    display_obj.tft.fillRect(0, KEY_Y - (KEY_H / 2), TFT_WIDTH, visible_rows * (KEY_H + KEY_SPACING_Y), TFT_BLACK);
+  } else {
+    display_obj.clearScreen();
+    display_obj.updateBanner(current_menu->name);
+    display_obj.tft.setTextColor(TFT_LIGHTGREY, TFT_DARKGREY);
+    this->drawStatusBar();
+  }
 
   if (current_menu->list != NULL)
   {
@@ -4567,7 +4614,8 @@ void MenuFunctions::displayCurrentMenu(int start_index)
     display_obj.tft.setFreeFont(NULL);
   }
 
-  this->displayMenuButtons();
+  if (!skip_chrome)
+    this->displayMenuButtons();
 }
 
 // ============================================================

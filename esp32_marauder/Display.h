@@ -14,14 +14,25 @@
 #include "SPIFFS.h"
 #include "Assets.h"
 
-#include <TFT_eSPI.h>
+#if defined(MARAUDER_C5_TOUCH_LCD_28)
+  // TFT_eSPI has no working ESP32-C5 SPI driver path (see C5CompatDisplay.h) -
+  // use an Adafruit_ST7789-backed shim that implements the same tft.* API
+  // used throughout this codebase instead.
+  #include "C5CompatDisplay.h"
+#else
+  #include <TFT_eSPI.h>
+#endif
 
 #ifdef HAS_CYD_TOUCH
   #include <XPT2046_Touchscreen.h>
 #endif
 
 #ifdef HAS_CAP_TOUCH
-  #include "ft6336.h"
+  #if defined(MARAUDER_C5_TOUCH_LCD_28)
+    #include "cst3530.h"
+  #else
+    #include "ft6336.h"
+  #endif
 #endif
 
 // WiFi stuff
@@ -53,6 +64,7 @@
 #define UP_BUTTON     0
 #define SELECT_BUTTON 1
 #define DOWN_BUTTON   2
+#define BACK_BUTTON   3
 
 #define EXIT_BUTTON_INDEX 0 // 6
 #define CHAN_MINUS_INDEX  1 // 4

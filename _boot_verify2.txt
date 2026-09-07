@@ -1,0 +1,55 @@
+E (356) MSPI Timing: Failed to allocate dummy cacheline for PSRAM memory barrier!
+ESP-IDF version is: v5.5.4
+[Touch] I2C scan:
+[Touch]   found device at 0x18
+[Touch]   found device at 0x24
+[Touch]   found device at 0x51
+[Touch]   found device at 0x58
+[Touch]   found device at 0x6B
+[Touch]   found device at 0x70
+[Touch]   found device at 0x7E
+[Touch] CST3530 initialized via CH32V003 IO expander
+[Display] PINS: CS=10 DC=9 RST=-1 MOSI=7 SCLK=6 SPI_FREQ=16000000
+Finished settings nodes
+Changing to main menu...
+0
+
+              @@@@@@                        
+              @@@@@@@@                      
+              @@@@@@@@@@@                   
+             @@@@@@  @@@@@@                 
+          @@@@@@@      @@@@@@@              
+        @@@@@@            @@@@@@            
+     @@@@@@@                @@@@@@@         
+   @@@@@@                      @@@@@@       
+@@@@@@@              @@@@@@@@@@@@@@@@       
+@@@@@                 @@@@@@@@@@@@@@@       
+@@@@@                   @@@@@@@             
+@@@@@                      @@@@@@           
+@@@@@@                       @@@@@@@        
+  @@@@@@                        @@@@@@@@@@@@
+    @@@@@@@                          @@@@@@ 
+       @@@@@@                     @@@@@@    
+         @@@@@@@                @@@@@@      
+            @@@@@@           @@@@@@         
+              @@@@@@@      @@@@@@           
+                 @@@@@@ @@@@@@              
+                   @@@@@@@@@                
+                      @@@@@@                
+                        @@@@                
+
+
+
+
+--------------------------------
+
+         ESP32 Marauder      
+
+            v1.15.1
+
+       By: justcallmekoko
+
+--------------------------------
+
+
+> 

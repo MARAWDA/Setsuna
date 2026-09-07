@@ -1,0 +1,6 @@
+﻿load:0x408556b0,len:0x115c
+load:0x4084bba0,len:0xb68
+load:0x4084e5a0,len:0x30b4
+entry 0x4084bba0
+E (373) MSPI Timing: Failed to allocate dummy cacheline for PSRAM memory barrier!
+

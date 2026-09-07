@@ -14,7 +14,10 @@ Display::Display()
 
 int8_t Display::menuButton(uint16_t *x, uint16_t *y, bool pressed, bool check_hold) {
   #ifdef HAS_ILI9341
-    for (uint8_t b = BUTTON_ARRAY_LEN; b < BUTTON_ARRAY_LEN + 3; b++) {
+    // There are 4 bottom nav buttons in the bar: UP, OK, DOWN, BACK.
+    // The original loop only checked the first three, so BACK never fired and
+    // the button mapping felt inconsistent on the touch screen.
+    for (uint8_t b = BUTTON_ARRAY_LEN; b < BUTTON_ARRAY_LEN + 4; b++) {
       if (pressed && this->key[b].contains(*x, *y)) {
         this->key[b].press(true);  // tell the button it is pressed
       } else {
@@ -22,7 +25,7 @@ int8_t Display::menuButton(uint16_t *x, uint16_t *y, bool pressed, bool check_ho
       }
     }
 
-    for (uint8_t b = BUTTON_ARRAY_LEN; b < BUTTON_ARRAY_LEN + 3; b++) {
+    for (uint8_t b = BUTTON_ARRAY_LEN; b < BUTTON_ARRAY_LEN + 4; b++) {
       if (!check_hold) {
         if ((this->key[b].justReleased()) && (!pressed)) {
           return b - BUTTON_ARRAY_LEN;
@@ -68,8 +71,15 @@ uint8_t Display::updateTouch(uint16_t *x, uint16_t *y, uint16_t threshold) {
               *y = (PANCAKE_PANEL_W - 1) - raw_x;
               break;
             case 2: // Portrait 180
-              *x = (PANCAKE_PANEL_W - 1) - raw_x;
-              *y = (PANCAKE_PANEL_H - 1) - raw_y;
+              // Confirmed via live on-device dot-overlay test: identity
+              // mapping (no transform) makes the touch dot land exactly
+              // under the finger on THIS unit - keep this, it's verified,
+              // not theoretical. (The user's separate WarDriver project
+              // mirrors X instead, but that's unverified/possibly a legacy
+              // workaround from a different calibration - trust our own
+              // confirmed-accurate measurement over unverified other code.)
+              *x = raw_x;
+              *y = raw_y;
               break;
             case 3: // Landscape 270 CW
               *x = (PANCAKE_PANEL_H - 1) - raw_y;
@@ -80,6 +90,15 @@ uint8_t Display::updateTouch(uint16_t *x, uint16_t *y, uint16_t threshold) {
               *y = raw_y;
               break;
           }
+
+          #if defined(MARAUDER_C5_TOUCH_LCD_28)
+            static uint32_t last_touch_dbg = 0;
+            if (millis() - last_touch_dbg > 200) {
+              Serial.printf("[TouchDbg] raw=(%d,%d) rot=%d mapped=(%d,%d)\n",
+                            raw_x, raw_y, rot, *x, *y);
+              last_touch_dbg = millis();
+            }
+          #endif
           return 1;
         }
       #elif !defined(HAS_CYD_TOUCH)
@@ -115,6 +134,7 @@ uint8_t Display::updateTouch(uint16_t *x, uint16_t *y, uint16_t threshold) {
               *y = map(p.x, 200, 3700, 1, TFT_HEIGHT);
               break;
           }
+
           return 1;
         }
         else
@@ -151,9 +171,25 @@ bool Display::isTouchHeld(uint16_t threshold) {
 }
 
 void Display::init() {
+  #ifdef HAS_CAP_TOUCH
+    #if defined(MARAUDER_C5_TOUCH_LCD_28)
+      io_expander_set_output(IO_EXPANDER_PIN_LCD_RST, false);
+      delay(30);
+      io_expander_set_output(IO_EXPANDER_PIN_LCD_RST, true);
+      delay(80);
+      io_expander_set_backlight(100);
+    #endif
+  #endif
+
   tft.init();
 
-  #if defined(HAS_DUAL_BAND) && !defined(MARAUDER_MINI_V3)
+  // tft.init() resets MADCTL/rotation to the driver default; without
+  // reapplying it here, every runtime call to Display::init() (menu
+  // navigation, rotation toggles, etc.) leaves subsequent draws using the
+  // wrong coordinate mapping, which renders as scrambled/glitchy pixels.
+  tft.setRotation(SCREEN_ORIENTATION);
+
+  #if defined(HAS_DUAL_BAND) && !defined(MARAUDER_MINI_V3) && !defined(MARAUDER_C5_TOUCH_LCD_28)
     digitalWrite(TFT_BL, HIGH);
   #endif
 }
@@ -212,7 +248,20 @@ void Display::RunSetup() {
   #ifdef HAS_CAP_TOUCH
     ft6336_init();
   #endif
-  
+
+  #if defined(MARAUDER_C5_TOUCH_LCD_28)
+    io_expander_set_output(IO_EXPANDER_PIN_LCD_RST, false);
+    delay(30);
+    io_expander_set_output(IO_EXPANDER_PIN_LCD_RST, true);
+    delay(80);
+    io_expander_set_backlight(100);
+  #endif
+
+  #if defined(MARAUDER_C5_TOUCH_LCD_28)
+    Serial.printf("[Display] PINS: CS=%d DC=%d RST=%d MOSI=%d SCLK=%d SPI_FREQ=%ld\n",
+                  TFT_CS, TFT_DC, TFT_RST, TFT_MOSI, TFT_SCLK, (long)SPI_FREQUENCY);
+  #endif
+
   tft.init();
 
   tft.setRotation(SCREEN_ORIENTATION);

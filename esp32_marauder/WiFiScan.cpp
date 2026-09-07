@@ -1937,13 +1937,16 @@ void WiFiScan::RunSetup() {
     
     NimBLEDevice::setScanFilterMode(CONFIG_BTDM_SCAN_DUPL_TYPE_DEVICE);
     NimBLEDevice::setScanDuplicateCacheSize(200);
-    NimBLEDevice::init("");
-    pBLEScan = NimBLEDevice::getScan(); //create new scan
-    this->ble_initialized = true;
-    
-    this->shutdownBLE();
+    // NimBLE HCI transport crashes on boot on this board's chip/core combo
+    // (hci_transport_host_cmd_tx / ble_hs_hci_cmd_transport); skip BLE init
+    // here until that's fixed so the rest of RunSetup() can still run.
+    #ifndef MARAUDER_C5_TOUCH_LCD_28
+      NimBLEDevice::init("");
+      pBLEScan = NimBLEDevice::getScan(); //create new scan
+      this->ble_initialized = true;
 
-    //Serial.println("Initializing WiFi...");
+      this->shutdownBLE();
+    #endif
 
     esp_wifi_init(&cfg);
     #ifdef HAS_IDF_3
