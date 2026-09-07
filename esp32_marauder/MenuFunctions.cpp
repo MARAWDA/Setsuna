@@ -205,11 +205,12 @@ void MenuFunctions::main(uint32_t currentTime)
       pressed = display_obj.updateTouch(&t_x, &t_y);
   #endif
 
-  // C5 idle-menu touch nav (top/middle/bottom third = UP/SELECT/DOWN) is
-  // implemented below, right after display_obj.menuButton() is called - see
-  // the MARAUDER_C5_TOUCH_LCD_28 block there. Do not short-circuit the touch
-  // path here; the normal touch/button hit-testing must still run for every
-  // other board and for the C5 bottom-bar fallback (incl. BACK).
+  // C5 idle-menu touch nav (tap a menu row to select+run it, or use the
+  // bottom UP/OK/DOWN/BACK bar) is implemented below, right after
+  // display_obj.menuButton() is called - see the MARAUDER_C5_TOUCH_LCD_28
+  // block there. Do not short-circuit the touch path here; the normal
+  // touch/button hit-testing must still run for every other board and for
+  // the C5 bottom-bar fallback (incl. BACK).
 
 
   // Brightness gesture: hold top or bottom zone 1.5s to enter brightness mode
@@ -528,7 +529,10 @@ void MenuFunctions::main(uint32_t currentTime)
       }*/
 
       // Detect up, down, select
-      uint8_t menu_button = display_obj.menuButton(&t_x, &t_y, pressed);
+      // menuButton() returns int8_t (-1 for "no button"); must stay signed or
+      // -1 becomes 255 and `menu_button > -1` below is always true, firing a
+      // full-redraw every single idle loop.
+      int8_t menu_button = display_obj.menuButton(&t_x, &t_y, pressed);
 
       #if defined(MARAUDER_C5_TOUCH_LCD_28)
         // Direct "tap the item you want" nav: tapping anywhere on a visible
@@ -541,18 +545,14 @@ void MenuFunctions::main(uint32_t currentTime)
         // screens (which reuse UP/DOWN for channel hop, etc.) are unaffected.
         static bool row_tap_prev_pressed = false;
         if (pressed && !row_tap_prev_pressed &&
+          t_y < 270 &&
             ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
              (wifi_scan_obj.currentScanMode == WIFI_CONNECTED)) &&
             current_menu && current_menu->list) {
           uint16_t visible_rows = min((int)BUTTON_SCREEN_LIMIT, current_menu->list->size() - this->menu_start_index);
-          Serial.printf("[RowTap] press at (%d,%d), menu_start=%d, visible_rows=%d\n",
-                        t_x, t_y, this->menu_start_index, visible_rows);
-          bool matched = false;
           for (uint16_t b = 0; b < visible_rows; b++) {
             if (display_obj.key[b].contains(t_x, t_y)) {
               uint16_t idx = this->menu_start_index + b;
-              Serial.printf("[RowTap] matched row b=%d idx=%d\n", b, idx);
-              matched = true;
               if (idx < current_menu->list->size()) {
                 current_menu->selected = idx;
                 current_menu->list->get(idx).callable();
@@ -560,7 +560,6 @@ void MenuFunctions::main(uint32_t currentTime)
               break;
             }
           }
-          if (!matched) Serial.println("[RowTap] no row matched");
         }
         row_tap_prev_pressed = pressed;
       #endif
@@ -4528,6 +4527,10 @@ void MenuFunctions::buildButtons(Menu *menu, int starting_index, const char* but
                                   TFT_WHITE,
                                   (char*)label,
                                   1);
+
+    #if defined(MARAUDER_C5_TOUCH_LCD_28)
+      display_obj.key[i].setHitBox(w * col, 270, w, 50);
+    #endif
   }
 }
 

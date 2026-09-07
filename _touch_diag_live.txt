@@ -1,0 +1,269 @@
+ESP-ROM:esp32c5-eco3-20250704
+Build:Jul  4 2025
+rst:0x15 (USB_UART_HPSYS),boot:0x70 (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x408556b0,len:0x1258
+load:0x4084bba0,len:0xca4
+load:0x4084e5a0,len:0x315c
+entry 0x4084bba0
+E (356) MSPI Timing: Failed to allocate dummy cacheline for PSRAM memory barrier!
+ESP-IDF version is: v5.5.4
+[Touch] I2C scan:
+[Touch]   found device at 0x18
+[Touch]   found device at 0x24
+[Touch]   found device at 0x51
+[Touch]   found device at 0x58
+[Touch]   found device at 0x6B
+[Touch]   found device at 0x70
+[Touch]   found device at 0x7E
+[Touch] CST3530 initialized via CH32V003 IO expander
+[Display] PINS: CS=10 DC=9 RST=-1 MOSI=7 SCLK=6 SPI_FREQ=10000000
+Finished settings nodes
+Changing to main menu...
+0
+
+              @@@@@@                        
+              @@@@@@@@                      
+              @@@@@@@@@@@                   
+             @@@@@@  @@@@@@                 
+          @@@@@@@      @@@@@@@              
+        @@@@@@            @@@@@@            
+     @@@@@@@                @@@@@@@         
+   @@@@@@                      @@@@@@       
+@@@@@@@              @@@@@@@@@@@@@@@@       
+@@@@@                 @@@@@@@@@@@@@@@       
+@@@@@                   @@@@@@@             
+@@@@@                      @@@@@@           
+@@@@@@                       @@@@@@@        
+  @@@@@@                        @@@@@@@@@@@@
+    @@@@@@@                          @@@@@@ 
+       @@@@@@                     @@@@@@    
+         @@@@@@@                @@@@@@      
+            @@@@@@           @@@@@@         
+              @@@@@@@      @@@@@@           
+                 @@@@@@ @@@@@@              
+                   @@@@@@@@@                
+                      @@@@@@                
+                        @@@@                
+
+
+
+
+--------------------------------
+
+         ESP32 Marauder      
+
+            v1.15.1
+
+       By: justcallmekoko
+
+--------------------------------
+
+
+> [TouchDbg] raw=(79,309) rot=2 mapped=(79,309)
+[RowTap] press at (79,309), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[TouchDbg] raw=(79,309) rot=2 mapped=(79,309)
+[TouchDbg] raw=(79,309) rot=2 mapped=(79,309)
+[TouchDbg] raw=(74,307) rot=2 mapped=(74,307)
+[TouchDbg] raw=(74,307) rot=2 mapped=(74,307)
+[TouchDbg] raw=(86,308) rot=2 mapped=(86,308)
+[TouchDbg] raw=(86,308) rot=2 mapped=(86,308)
+[TouchDbg] raw=(86,308) rot=2 mapped=(86,308)
+[TouchDbg] raw=(121,308) rot=2 mapped=(121,308)
+[TouchDbg] raw=(132,309) rot=2 mapped=(132,309)
+[TouchDbg] raw=(153,301) rot=2 mapped=(153,301)
+[TouchDbg] raw=(153,301) rot=2 mapped=(153,301)
+[TouchDbg] raw=(170,300) rot=2 mapped=(170,300)
+[TouchDbg] raw=(172,298) rot=2 mapped=(172,298)
+[TouchDbg] raw=(192,314) rot=2 mapped=(192,314)
+[RowTap] press at (192,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[TouchDbg] raw=(193,314) rot=2 mapped=(193,314)
+[TouchDbg] raw=(193,314) rot=2 mapped=(193,314)
+[TouchDbg] raw=(193,314) rot=2 mapped=(193,314)
+[TouchDbg] raw=(193,314) rot=2 mapped=(193,314)
+[TouchDbg] raw=(191,288) rot=2 mapped=(191,288)
+[TouchDbg] raw=(191,288) rot=2 mapped=(191,288)
+[TouchDbg] raw=(191,288) rot=2 mapped=(191,288)
+[TouchDbg] raw=(194,308) rot=2 mapped=(194,308)
+[TouchDbg] raw=(194,308) rot=2 mapped=(194,308)
+[TouchDbg] raw=(194,308) rot=2 mapped=(194,308)
+[TouchDbg] raw=(173,251) rot=2 mapped=(173,251)
+[TouchDbg] raw=(173,251) rot=2 mapped=(173,251)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(126,218) rot=2 mapped=(126,218)
+[TouchDbg] raw=(116,107) rot=2 mapped=(116,107)
+[TouchDbg] raw=(116,107) rot=2 mapped=(116,107)
+[TouchDbg] raw=(113,93) rot=2 mapped=(113,93)
+[TouchDbg] raw=(108,54) rot=2 mapped=(108,54)
+[TouchDbg] raw=(108,53) rot=2 mapped=(108,53)
+[TouchDbg] raw=(108,46) rot=2 mapped=(108,46)
+[TouchDbg] raw=(108,46) rot=2 mapped=(108,46)
+[TouchDbg] raw=(75,308) rot=2 mapped=(75,308)
+[RowTap] press at (75,308), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[TouchDbg] raw=(75,308) rot=2 mapped=(75,308)
+[TouchDbg] raw=(120,300) rot=2 mapped=(120,300)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(154,299) rot=2 mapped=(154,299)
+[TouchDbg] raw=(40,302) rot=2 mapped=(40,302)
+[TouchDbg] raw=(148,290) rot=2 mapped=(148,290)
+[TouchDbg] raw=(51,292) rot=2 mapped=(51,292)
+[TouchDbg] raw=(93,314) rot=2 mapped=(93,314)
+[RowTap] press at (93,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[TouchDbg] raw=(137,305) rot=2 mapped=(137,305)
+[RowTap] press at (137,305), menu_start=0, visible_rows=5
+[RowTap] no row matched
+[TouchDbg] raw=(47,308) rot=2 mapped=(47,308)
+[TouchDbg] raw=(47,308) rot=2 mapped=(47,308)
+[TouchDbg] raw=(150,306) rot=2 mapped=(150,306)
+[TouchDbg] raw=(150,306) rot=2 mapped=(150,306)
+[TouchDbg] raw=(107,297) rot=2 mapped=(107,297)
+[TouchDbg] raw=(107,297) rot=2 mapped=(107,297)
+[TouchDbg] raw=(126,299) rot=2 mapped=(126,299)
+[TouchDbg] raw=(126,299) rot=2 mapped=(126,299)
+[TouchDbg] raw=(142,293) rot=2 mapped=(142,293)
+[TouchDbg] raw=(142,293) rot=2 mapped=(142,293)
+[TouchDbg] raw=(75,294) rot=2 mapped=(75,294)
+[TouchDbg] raw=(75,294) rot=2 mapped=(75,294)
+[TouchDbg] raw=(86,296) rot=2 mapped=(86,296)
+[TouchDbg] raw=(86,296) rot=2 mapped=(86,296)
+[TouchDbg] raw=(89,312) rot=2 mapped=(89,312)
+[TouchDbg] raw=(89,312) rot=2 mapped=(89,312)
+[TouchDbg] raw=(133,298) rot=2 mapped=(133,298)
+[RowTap] press at (133,298), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[TouchDbg] raw=(133,298) rot=2 mapped=(133,298)
+[TouchDbg] raw=(133,298) rot=2 mapped=(133,298)
+[TouchDbg] raw=(146,296) rot=2 mapped=(146,296)
+[TouchDbg] raw=(146,296) rot=2 mapped=(146,296)
+[TouchDbg] raw=(146,278) rot=2 mapped=(146,278)
+[TouchDbg] raw=(146,278) rot=2 mapped=(146,278)
+[TouchDbg] raw=(131,253) rot=2 mapped=(131,253)
+[TouchDbg] raw=(131,253) rot=2 mapped=(131,253)
+[TouchDbg] raw=(140,298) rot=2 mapped=(140,298)
+[TouchDbg] raw=(140,298) rot=2 mapped=(140,298)
+[TouchDbg] raw=(139,290) rot=2 mapped=(139,290)
+[TouchDbg] raw=(139,290) rot=2 mapped=(139,290)
+[TouchDbg] raw=(150,275) rot=2 mapped=(150,275)
+[TouchDbg] raw=(150,275) rot=2 mapped=(150,275)
+[TouchDbg] raw=(135,234) rot=2 mapped=(135,234)
+[TouchDbg] raw=(137,229) rot=2 mapped=(137,229)
+[TouchDbg] raw=(155,149) rot=2 mapped=(155,149)
+[TouchDbg] raw=(155,149) rot=2 mapped=(155,149)
+[TouchDbg] raw=(139,85) rot=2 mapped=(139,85)
+[TouchDbg] raw=(136,56) rot=2 mapped=(136,56)
+[TouchDbg] raw=(136,56) rot=2 mapped=(136,56)
+[TouchDbg] raw=(135,50) rot=2 mapped=(135,50)
+[TouchDbg] raw=(89,82) rot=2 mapped=(89,82)
+[TouchDbg] raw=(71,89) rot=2 mapped=(71,89)
+[TouchDbg] raw=(71,89) rot=2 mapped=(71,89)
+[TouchDbg] raw=(56,125) rot=2 mapped=(56,125)
+[TouchDbg] raw=(32,153) rot=2 mapped=(32,153)
+[TouchDbg] raw=(24,124) rot=2 mapped=(24,124)
+[TouchDbg] raw=(24,124) rot=2 mapped=(24,124)
+[TouchDbg] raw=(30,110) rot=2 mapped=(30,110)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)
+[TouchDbg] raw=(40,81) rot=2 mapped=(40,81)

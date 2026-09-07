@@ -1,0 +1,643 @@
+SPI mode:DIO, clock div:1
+load:0x408556b0,len:0x1258
+load:0x4084bba0,len:0xca4
+load:0x4084e5a0,len:0x315c
+entry 0x4084bba0
+E (356) MSPI Timing: Failed to allocate dummy cacheline for PSRAM memory barrier!
+ESP-IDF version is: v5.5.4
+[Touch] I2C scan:
+[Touch]   found device at 0x18
+[Touch]   found device at 0x24
+[Touch]   found device at 0x51
+[Touch]   found device at 0x6B
+[Touch]   found device at 0x70
+[Touch]   found device at 0x7E
+[Touch] CST3530 initialized via CH32V003 IO expander
+[Display] PINS: CS=10 DC=9 RST=-1 MOSI=7 SCLK=6 SPI_FREQ=10000000
+Finished settings nodes
+Changing to main menu...
+0
+
+              @@@@@@                        
+              @@@@@@@@                      
+              @@@@@@@@@@@                   
+             @@@@@@  @@@@@@                 
+          @@@@@@@      @@@@@@@              
+        @@@@@@            @@@@@@            
+     @@@@@@@                @@@@@@@         
+   @@@@@@                      @@@@@@       
+@@@@@@@              @@@@@@@@@@@@@@@@       
+@@@@@                 @@@@@@@@@@@@@@@       
+@@@@@                   @@@@@@@             
+@@@@@                      @@@@@@           
+@@@@@@                       @@@@@@@        
+  @@@@@@                        @@@@@@@@@@@@
+    @@@@@@@                          @@@@@@ 
+       @@@@@@                     @@@@@@    
+         @@@@@@@                @@@@@@      
+            @@@@@@           @@@@@@         
+              @@@@@@@      @@@@@@           
+                 @@@@@@ @@@@@@              
+                   @@@@@@@@@                
+                      @@@@@@                
+                        @@@@                
+
+
+
+
+--------------------------------
+
+         ESP32 Marauder      
+
+            v1.15.1
+
+       By: justcallmekoko
+
+--------------------------------
+
+
+> [TouchDbg] raw=(142,280) rot=2 mapped=(142,280)
+[BottomBar] pressed at (142,280) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[RowTap] press at (142,280), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (142,280) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(142,280) rot=2 mapped=(142,280)
+[BottomBar] pressed at (139,307) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(139,307) rot=2 mapped=(139,307)
+[BottomBar] pressed at (139,307) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(156,300) rot=2 mapped=(156,300)
+[BottomBar] pressed at (156,300) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (156,300) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(142,302) rot=2 mapped=(142,302)
+[BottomBar] pressed at (142,302) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(142,302) rot=2 mapped=(142,302)
+[BottomBar] pressed at (142,302) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,313) rot=2 mapped=(146,313)
+[BottomBar] pressed at (146,313) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (101,305) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(101,305) rot=2 mapped=(101,305)
+[BottomBar] pressed at (101,305) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(78,308) rot=2 mapped=(78,308)
+[BottomBar] pressed at (78,308) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(78,308) rot=2 mapped=(78,308)
+[BottomBar] pressed at (78,308) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (30,307) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(30,307) rot=2 mapped=(30,307)
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(34,310) rot=2 mapped=(34,310)
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[RowTap] press at (34,310), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(34,310) rot=2 mapped=(34,310)
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(34,310) rot=2 mapped=(34,310)
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(34,310) rot=2 mapped=(34,310)
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(34,310) rot=2 mapped=(34,310)
+[BottomBar] pressed at (34,310) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(146,314) rot=2 mapped=(146,314)
+[BottomBar] pressed at (146,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,314) rot=2 mapped=(146,314)
+[BottomBar] pressed at (146,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (146,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,314) rot=2 mapped=(146,314)
+[BottomBar] pressed at (146,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(29,308) rot=2 mapped=(29,308)
+[BottomBar] pressed at (29,308) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(29,308) rot=2 mapped=(29,308)
+[BottomBar] pressed at (29,308) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (23,304) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(23,304) rot=2 mapped=(23,304)
+[BottomBar] pressed at (23,304) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(23,304) rot=2 mapped=(23,304)
+[BottomBar] pressed at (23,304) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(23,304) rot=2 mapped=(23,304)
+[BottomBar] pressed at (23,304) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (30,293) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(30,293) rot=2 mapped=(30,293)
+[BottomBar] pressed at (30,293) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(30,293) rot=2 mapped=(30,293)
+[BottomBar] pressed at (30,293) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(39,250) rot=2 mapped=(39,250)
+[BottomBar] pressed at (39,250) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[BottomBar] pressed at (39,250) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(39,250) rot=2 mapped=(39,250)
+[BottomBar] pressed at (23,270) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(23,270) rot=2 mapped=(23,270)
+[BottomBar] pressed at (23,270) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(31,305) rot=2 mapped=(31,305)
+[BottomBar] pressed at (31,305) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (150,294) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(150,294) rot=2 mapped=(150,294)
+[BottomBar] pressed at (150,294) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(150,294) rot=2 mapped=(150,294)
+[BottomBar] pressed at (151,312) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,311) rot=2 mapped=(149,311)
+[BottomBar] pressed at (149,311) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (150,311) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(150,311) rot=2 mapped=(150,311)
+[BottomBar] pressed at (145,285) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(145,285) rot=2 mapped=(145,285)
+[BottomBar] pressed at (145,285) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(145,285) rot=2 mapped=(145,285)
+[BottomBar] pressed at (138,313) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (138,313) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(138,313) rot=2 mapped=(138,313)
+[BottomBar] FIRED menu_button=2 at (0,0) pressed=0
+[TouchDbg] raw=(90,313) rot=2 mapped=(90,313)
+[BottomBar] pressed at (90,313) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[RowTap] press at (90,313), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (90,313) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(90,313) rot=2 mapped=(90,313)
+[BottomBar] pressed at (90,313) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(89,313) rot=2 mapped=(89,313)
+[BottomBar] pressed at (89,313) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(89,313) rot=2 mapped=(89,313)
+[BottomBar] pressed at (89,313) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (75,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(75,296) rot=2 mapped=(75,296)
+[BottomBar] pressed at (75,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(75,296) rot=2 mapped=(75,296)
+[BottomBar] pressed at (75,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(79,309) rot=2 mapped=(79,309)
+[BottomBar] pressed at (79,309) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (79,309) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(72,280) rot=2 mapped=(72,280)
+[BottomBar] pressed at (72,280) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(72,280) rot=2 mapped=(72,280)
+[BottomBar] pressed at (72,280) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(65,307) rot=2 mapped=(65,307)
+[BottomBar] pressed at (65,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (65,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(65,307) rot=2 mapped=(65,307)
+[BottomBar] pressed at (75,300) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(75,300) rot=2 mapped=(75,300)
+[BottomBar] pressed at (75,300) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(72,299) rot=2 mapped=(72,299)
+[BottomBar] pressed at (72,299) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (72,299) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(72,299) rot=2 mapped=(72,299)
+[BottomBar] pressed at (71,314) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(71,314) rot=2 mapped=(71,314)
+[BottomBar] pressed at (71,314) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(71,314) rot=2 mapped=(71,314)
+[BottomBar] pressed at (71,314) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (68,276) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(68,276) rot=2 mapped=(68,276)
+[BottomBar] pressed at (68,276) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(68,276) rot=2 mapped=(68,276)
+[BottomBar] pressed at (68,276) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(210,297) rot=2 mapped=(210,297)
+[BottomBar] pressed at (210,297) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[BottomBar] pressed at (210,297) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(210,297) rot=2 mapped=(210,297)
+[BottomBar] pressed at (210,297) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(206,295) rot=2 mapped=(206,295)
+[BottomBar] pressed at (206,295) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(206,295) rot=2 mapped=(206,295)
+[BottomBar] pressed at (207,296) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[BottomBar] pressed at (217,302) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(217,301) rot=2 mapped=(217,301)
+[BottomBar] pressed at (214,298) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(214,298) rot=2 mapped=(214,298)
+[BottomBar] pressed at (210,291) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(210,290) rot=2 mapped=(210,290)
+[BottomBar] pressed at (210,290) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[BottomBar] pressed at (211,290) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(211,290) rot=2 mapped=(211,290)
+[BottomBar] pressed at (212,293) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(212,293) rot=2 mapped=(212,293)
+[BottomBar] pressed at (212,293) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[BottomBar] FIRED menu_button=3 at (0,0) pressed=0
+[TouchDbg] raw=(201,314) rot=2 mapped=(201,314)
+[BottomBar] pressed at (201,314) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[RowTap] press at (201,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (209,312) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(210,312) rot=2 mapped=(210,312)
+[BottomBar] pressed at (210,312) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(210,311) rot=2 mapped=(210,311)
+[BottomBar] pressed at (211,312) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(208,314) rot=2 mapped=(208,314)
+[BottomBar] pressed at (208,314) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[BottomBar] pressed at (208,314) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(208,314) rot=2 mapped=(208,314)
+[BottomBar] FIRED menu_button=3 at (0,0) pressed=0
+[TouchDbg] raw=(55,314) rot=2 mapped=(55,314)
+[BottomBar] pressed at (55,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[RowTap] press at (55,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(77,297) rot=2 mapped=(77,297)
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[RowTap] press at (77,297), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(77,297) rot=2 mapped=(77,297)
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(77,297) rot=2 mapped=(77,297)
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(77,297) rot=2 mapped=(77,297)
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(77,297) rot=2 mapped=(77,297)
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(77,297) rot=2 mapped=(77,297)
+[BottomBar] pressed at (77,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(146,313) rot=2 mapped=(146,313)
+[BottomBar] pressed at (146,313) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (146,313) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,313) rot=2 mapped=(146,313)
+[BottomBar] pressed at (146,313) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] FIRED menu_button=2 at (0,0) pressed=0
+[TouchDbg] raw=(82,307) rot=2 mapped=(82,307)
+[BottomBar] pressed at (82,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[RowTap] press at (82,307), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (82,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(82,307) rot=2 mapped=(82,307)
+[BottomBar] pressed at (90,314) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(90,314) rot=2 mapped=(90,314)
+[BottomBar] pressed at (90,314) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(79,311) rot=2 mapped=(79,311)
+[BottomBar] pressed at (79,311) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (80,310) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(80,310) rot=2 mapped=(80,310)
+[BottomBar] pressed at (80,310) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(88,301) rot=2 mapped=(88,301)
+[BottomBar] pressed at (88,301) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(88,301) rot=2 mapped=(88,301)
+[BottomBar] pressed at (88,301) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (87,247) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(87,248) rot=2 mapped=(87,248)
+[BottomBar] pressed at (92,219) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(92,219) rot=2 mapped=(92,219)
+[BottomBar] pressed at (92,219) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(79,189) rot=2 mapped=(79,189)
+[BottomBar] pressed at (79,189) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[BottomBar] pressed at (92,158) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(92,158) rot=2 mapped=(92,158)
+[BottomBar] pressed at (92,158) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(92,158) rot=2 mapped=(92,158)
+[BottomBar] pressed at (92,158) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(92,158) rot=2 mapped=(92,158)
+[BottomBar] pressed at (92,158) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(82,307) rot=2 mapped=(82,307)
+[BottomBar] pressed at (82,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[RowTap] press at (82,307), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (82,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(86,302) rot=2 mapped=(86,302)
+[BottomBar] pressed at (86,302) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(83,302) rot=2 mapped=(83,302)
+[BottomBar] pressed at (83,302) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(86,292) rot=2 mapped=(86,292)
+[BottomBar] pressed at (86,292) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (86,292) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(86,292) rot=2 mapped=(86,292)
+[BottomBar] pressed at (86,292) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(206,303) rot=2 mapped=(206,303)
+[BottomBar] pressed at (206,303) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(215,308) rot=2 mapped=(215,308)
+[BottomBar] pressed at (215,308) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[BottomBar] pressed at (208,299) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(208,299) rot=2 mapped=(208,299)
+[BottomBar] pressed at (208,299) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(209,305) rot=2 mapped=(209,305)
+[BottomBar] pressed at (209,305) menu_button=-1 key12=0 key13=0 key14=0 key15=1
+[TouchDbg] raw=(176,296) rot=2 mapped=(176,296)
+[BottomBar] pressed at (176,296) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (140,306) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(140,306) rot=2 mapped=(140,306)
+[BottomBar] pressed at (135,299) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(135,299) rot=2 mapped=(135,299)
+[BottomBar] pressed at (145,298) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(145,298) rot=2 mapped=(145,298)
+[BottomBar] pressed at (145,298) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (147,296) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(147,296) rot=2 mapped=(147,296)
+[BottomBar] pressed at (147,296) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(16,298) rot=2 mapped=(16,298)
+[BottomBar] pressed at (16,298) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(16,300) rot=2 mapped=(16,300)
+[BottomBar] pressed at (16,300) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (8,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(8,314) rot=2 mapped=(8,314)
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[RowTap] press at (10,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] pressed at (10,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(10,314) rot=2 mapped=(10,314)
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(149,304) rot=2 mapped=(149,304)
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[RowTap] press at (149,304), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,304) rot=2 mapped=(149,304)
+[BottomBar] pressed at (146,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,303) rot=2 mapped=(146,303)
+[BottomBar] pressed at (146,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(155,304) rot=2 mapped=(155,304)
+[BottomBar] pressed at (155,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (172,305) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(172,305) rot=2 mapped=(172,305)
+[BottomBar] pressed at (172,305) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(147,300) rot=2 mapped=(147,300)
+[BottomBar] pressed at (147,300) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,299) rot=2 mapped=(146,299)
+[BottomBar] pressed at (146,299) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (146,299) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,299) rot=2 mapped=(146,299)
+[BottomBar] pressed at (147,298) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(147,298) rot=2 mapped=(147,298)
+[BottomBar] pressed at (146,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,297) rot=2 mapped=(146,297)
+[BottomBar] pressed at (146,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (146,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,297) rot=2 mapped=(146,297)
+[BottomBar] pressed at (146,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,297) rot=2 mapped=(146,297)
+[BottomBar] pressed at (146,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,293) rot=2 mapped=(146,293)
+[BottomBar] pressed at (146,293) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (146,293) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(146,293) rot=2 mapped=(146,293)
+[BottomBar] pressed at (146,293) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(145,297) rot=2 mapped=(145,297)
+[BottomBar] pressed at (145,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(145,297) rot=2 mapped=(145,297)
+[BottomBar] pressed at (145,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (145,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(145,297) rot=2 mapped=(145,297)
+[BottomBar] pressed at (145,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] FIRED menu_button=2 at (0,0) pressed=0
+[TouchDbg] raw=(5,307) rot=2 mapped=(5,307)
+[BottomBar] pressed at (5,307) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[RowTap] press at (5,307), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (9,307) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(9,307) rot=2 mapped=(9,307)
+[BottomBar] pressed at (9,307) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(9,307) rot=2 mapped=(9,307)
+[BottomBar] pressed at (9,307) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(9,307) rot=2 mapped=(9,307)
+[BottomBar] pressed at (9,307) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(8,314) rot=2 mapped=(8,314)
+[BottomBar] pressed at (8,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[RowTap] press at (8,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (7,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(7,314) rot=2 mapped=(7,314)
+[BottomBar] pressed at (7,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[TouchDbg] raw=(7,314) rot=2 mapped=(7,314)
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(16,314) rot=2 mapped=(16,314)
+[BottomBar] pressed at (16,314) menu_button=-1 key12=1 key13=0 key14=0 key15=0
+[RowTap] press at (16,314), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] FIRED menu_button=0 at (0,0) pressed=0
+[TouchDbg] raw=(143,305) rot=2 mapped=(143,305)
+[BottomBar] pressed at (143,305) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[RowTap] press at (143,305), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (143,305) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(143,305) rot=2 mapped=(143,305)
+[BottomBar] pressed at (143,305) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(147,304) rot=2 mapped=(147,304)
+[BottomBar] pressed at (147,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(147,304) rot=2 mapped=(147,304)
+[BottomBar] pressed at (147,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (150,307) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(150,307) rot=2 mapped=(150,307)
+[BottomBar] pressed at (155,308) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(155,308) rot=2 mapped=(155,308)
+[BottomBar] pressed at (155,308) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(159,314) rot=2 mapped=(159,314)
+[BottomBar] pressed at (159,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (157,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(157,314) rot=2 mapped=(157,314)
+[BottomBar] pressed at (157,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(155,314) rot=2 mapped=(155,314)
+[BottomBar] pressed at (155,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(155,314) rot=2 mapped=(155,314)
+[BottomBar] pressed at (155,314) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] FIRED menu_button=2 at (0,0) pressed=0
+[TouchDbg] raw=(158,297) rot=2 mapped=(158,297)
+[BottomBar] pressed at (158,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[RowTap] press at (158,297), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (158,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(158,297) rot=2 mapped=(158,297)
+[BottomBar] pressed at (158,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(158,297) rot=2 mapped=(158,297)
+[BottomBar] pressed at (158,297) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(167,309) rot=2 mapped=(167,309)
+[BottomBar] pressed at (167,309) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (167,310) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(151,310) rot=2 mapped=(151,310)
+[BottomBar] pressed at (151,310) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(151,310) rot=2 mapped=(151,310)
+[BottomBar] pressed at (151,310) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(151,310) rot=2 mapped=(151,310)
+[BottomBar] pressed at (151,310) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (152,286) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(152,286) rot=2 mapped=(152,286)
+[BottomBar] pressed at (152,286) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(152,286) rot=2 mapped=(152,286)
+[BottomBar] pressed at (152,286) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(153,288) rot=2 mapped=(153,288)
+[BottomBar] pressed at (153,288) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[BottomBar] pressed at (144,311) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(144,311) rot=2 mapped=(144,311)
+[BottomBar] pressed at (144,311) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(144,311) rot=2 mapped=(144,311)
+[BottomBar] pressed at (144,311) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,303) rot=2 mapped=(149,303)
+[BottomBar] pressed at (149,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (149,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,303) rot=2 mapped=(149,303)
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,304) rot=2 mapped=(149,304)
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,304) rot=2 mapped=(149,304)
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,304) rot=2 mapped=(149,304)
+[BottomBar] pressed at (149,304) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(149,304) rot=2 mapped=(149,304)
+[BottomBar] FIRED menu_button=2 at (0,0) pressed=0
+[TouchDbg] raw=(96,304) rot=2 mapped=(96,304)
+[BottomBar] pressed at (96,304) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[RowTap] press at (96,304), menu_start=0, visible_rows=4
+[RowTap] no row matched
+[BottomBar] pressed at (96,304) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(96,304) rot=2 mapped=(96,304)
+[BottomBar] pressed at (95,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(95,296) rot=2 mapped=(95,296)
+[BottomBar] pressed at (95,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(91,291) rot=2 mapped=(91,291)
+[BottomBar] pressed at (91,291) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (91,291) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(91,291) rot=2 mapped=(91,291)
+[BottomBar] pressed at (83,301) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(83,301) rot=2 mapped=(83,301)
+[BottomBar] pressed at (83,301) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(84,299) rot=2 mapped=(84,299)
+[BottomBar] pressed at (84,299) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (84,299) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(84,299) rot=2 mapped=(84,299)
+[BottomBar] pressed at (84,299) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(82,301) rot=2 mapped=(82,301)
+[BottomBar] pressed at (82,301) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(86,288) rot=2 mapped=(86,288)
+[BottomBar] pressed at (86,288) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[BottomBar] pressed at (86,288) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(86,288) rot=2 mapped=(86,288)
+[BottomBar] pressed at (86,288) menu_button=-1 key12=0 key13=0 key14=0 key15=0
+[TouchDbg] raw=(89,302) rot=2 mapped=(89,302)
+[BottomBar] pressed at (89,302) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(89,302) rot=2 mapped=(89,302)
+[BottomBar] pressed at (89,302) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (90,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(90,296) rot=2 mapped=(90,296)
+[BottomBar] pressed at (90,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(89,291) rot=2 mapped=(89,291)
+[BottomBar] pressed at (89,291) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(89,291) rot=2 mapped=(89,291)
+[BottomBar] pressed at (89,291) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (104,296) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(104,296) rot=2 mapped=(104,296)
+[BottomBar] pressed at (104,297) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(94,302) rot=2 mapped=(94,302)
+[BottomBar] pressed at (94,302) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(94,302) rot=2 mapped=(94,302)
+[BottomBar] pressed at (94,302) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (99,298) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(99,298) rot=2 mapped=(99,298)
+[BottomBar] pressed at (99,298) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(95,293) rot=2 mapped=(95,293)
+[BottomBar] pressed at (95,293) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(95,293) rot=2 mapped=(95,293)
+[BottomBar] pressed at (95,293) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (83,304) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(83,304) rot=2 mapped=(83,304)
+[BottomBar] pressed at (80,306) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(80,306) rot=2 mapped=(80,306)
+[BottomBar] pressed at (79,308) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(79,307) rot=2 mapped=(79,307)
+[BottomBar] pressed at (79,307) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[BottomBar] pressed at (80,311) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(80,311) rot=2 mapped=(80,311)
+[BottomBar] pressed at (80,311) menu_button=-1 key12=0 key13=1 key14=0 key15=0
+[TouchDbg] raw=(80,311) rot=2 mapped=(80,311)
+[BottomBar] FIRED menu_button=1 at (0,0) pressed=0
+[TouchDbg] raw=(159,303) rot=2 mapped=(159,303)
+[BottomBar] pressed at (159,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[RowTap] press at (159,303), menu_start=0, visible_rows=5
+[RowTap] no row matched
+[BottomBar] pressed at (159,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(159,303) rot=2 mapped=(159,303)
+[BottomBar] pressed at (159,303) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(155,306) rot=2 mapped=(155,306)
+[BottomBar] pressed at (155,306) menu_button=-1 key12=0 key13=0 key14=1 key15=0
+[TouchDbg] raw=(155,306) rot=2 mapped=(155,306)
+[BottomBar] pressed at (155,306) menu_button=-1 key12=0 key13=0 key14=1 key15=0

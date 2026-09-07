@@ -411,10 +411,7 @@ void setup()
     led_obj.RunSetup();
   #endif
 
-  // TEMP DIAGNOSTIC: no physical GPS module connected on this board right
-  // now, and GPS UART init adds current draw/hang risk. Skip it while
-  // isolating the display glitch to a pure power-budget vs. driver issue.
-  #if defined(HAS_GPS) && !defined(MARAUDER_C5_TOUCH_LCD_28)
+  #ifdef HAS_GPS
     gps_obj.begin();
   #endif
 

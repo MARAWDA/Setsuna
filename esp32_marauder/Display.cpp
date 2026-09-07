@@ -27,9 +27,15 @@ int8_t Display::menuButton(uint16_t *x, uint16_t *y, bool pressed, bool check_ho
 
     for (uint8_t b = BUTTON_ARRAY_LEN; b < BUTTON_ARRAY_LEN + 4; b++) {
       if (!check_hold) {
+        #if defined(MARAUDER_C5_TOUCH_LCD_28)
+          if (this->key[b].justPressed()) {
+            return b - BUTTON_ARRAY_LEN;
+          }
+        #else
         if ((this->key[b].justReleased()) && (!pressed)) {
           return b - BUTTON_ARRAY_LEN;
         }
+        #endif
       }
       else {
         if ((this->key[b].isPressed())) {
@@ -91,14 +97,6 @@ uint8_t Display::updateTouch(uint16_t *x, uint16_t *y, uint16_t threshold) {
               break;
           }
 
-          #if defined(MARAUDER_C5_TOUCH_LCD_28)
-            static uint32_t last_touch_dbg = 0;
-            if (millis() - last_touch_dbg > 200) {
-              Serial.printf("[TouchDbg] raw=(%d,%d) rot=%d mapped=(%d,%d)\n",
-                            raw_x, raw_y, rot, *x, *y);
-              last_touch_dbg = millis();
-            }
-          #endif
           return 1;
         }
       #elif !defined(HAS_CYD_TOUCH)
