@@ -203,6 +203,8 @@ void MenuFunctions::main(uint32_t currentTime)
   #ifdef HAS_ILI9341
     if (!this->disable_touch)
       pressed = display_obj.updateTouch(&t_x, &t_y);
+    if (!pressed)
+      this->suppress_exit_until_release = false;
   #endif
 
   // C5 idle-menu touch nav (tap a menu row to select+run it, or use the
@@ -277,6 +279,7 @@ void MenuFunctions::main(uint32_t currentTime)
   #ifdef HAS_ILI9341
     if ((wifi_scan_obj.currentScanMode != WIFI_SCAN_OFF) &&
         (pressed) &&
+        (!this->suppress_exit_until_release) &&
         (wifi_scan_obj.currentScanMode != WIFI_CONNECTED) &&
         (wifi_scan_obj.currentScanMode != OTA_UPDATE) &&
         (wifi_scan_obj.currentScanMode != ESP_UPDATE) &&
@@ -555,6 +558,11 @@ void MenuFunctions::main(uint32_t currentTime)
               uint16_t idx = this->menu_start_index + b;
               if (idx < current_menu->list->size()) {
                 current_menu->selected = idx;
+                // The tap that launches an attack is still physically held down;
+                // without this, the touch-still-down exit check a few lines up
+                // sees that same touch on the very next loop and immediately
+                // stops the attack it just started.
+                this->suppress_exit_until_release = true;
                 current_menu->list->get(idx).callable();
               }
               break;
@@ -699,6 +707,11 @@ void MenuFunctions::main(uint32_t currentTime)
           }
         }
         if(menu_button == SELECT_BUTTON) {
+          // Same still-pressed race as the C5 row-tap nav: the tap that
+          // triggers SELECT is often still held down when callable() starts
+          // an attack, which would otherwise be caught by the touch-still-
+          // down exit check and immediately stop it again.
+          this->suppress_exit_until_release = true;
           current_menu->list->get(current_menu->selected).callable();
         }
         else if (menu_button == BACK_BUTTON) {

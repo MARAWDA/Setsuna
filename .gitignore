@@ -8,3 +8,9 @@ coverage.xml
 esp32_marauder/.vscode/settings.json
 __pycache__/
 *.pyc
+
+# Arduino/PlatformIO build caches (regenerable, were accidentally committed)
+esp32_marauder/.build/
+esp32_marauder/build/
+blink_test/build/
+c5_display_test/build/

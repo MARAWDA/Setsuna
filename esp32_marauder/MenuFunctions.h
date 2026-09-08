@@ -150,6 +150,9 @@ class MenuFunctions
     uint8_t mini_kb_index = 0;
     uint8_t old_gps_sat_count = 0;
     uint8_t max_graph_value = 0;
+    // Set when a C5 row-tap launches an attack so the touch-still-down exit
+    // check doesn't immediately stop it; cleared once the finger lifts.
+    bool suppress_exit_until_release = false;
 
     void buildWiFiFoxHuntMenu();
     void buildBluetoothFoxHuntMenu();

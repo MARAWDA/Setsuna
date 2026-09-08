@@ -3319,13 +3319,20 @@ void WiFiScan::writeNetworkInfo() {
 }
 
 void WiFiScan::setWiFiMode(wifi_mode_t mode, wifi_promiscuous_cb_t cb) {
-  esp_wifi_set_storage(WIFI_STORAGE_RAM);
-  esp_wifi_set_mode(mode);
-  esp_wifi_start();
+  esp_err_t err;
+  err = esp_wifi_set_storage(WIFI_STORAGE_RAM);
+  if (err != ESP_OK) Serial.printf("esp_wifi_set_storage failed: %s\n", esp_err_to_name(err));
+  err = esp_wifi_set_mode(mode);
+  if (err != ESP_OK) Serial.printf("esp_wifi_set_mode(%d) failed: %s\n", mode, esp_err_to_name(err));
+  err = esp_wifi_start();
+  if (err != ESP_OK) Serial.printf("esp_wifi_start failed: %s\n", esp_err_to_name(err));
   this->setMac();
-  esp_wifi_set_promiscuous(true);
-  esp_wifi_set_promiscuous_filter(&filt);
-  esp_wifi_set_promiscuous_rx_cb(cb);
+  err = esp_wifi_set_promiscuous(true);
+  if (err != ESP_OK) Serial.printf("esp_wifi_set_promiscuous failed: %s\n", esp_err_to_name(err));
+  err = esp_wifi_set_promiscuous_filter(&filt);
+  if (err != ESP_OK) Serial.printf("esp_wifi_set_promiscuous_filter failed: %s\n", esp_err_to_name(err));
+  err = esp_wifi_set_promiscuous_rx_cb(cb);
+  if (err != ESP_OK) Serial.printf("esp_wifi_set_promiscuous_rx_cb failed: %s\n", esp_err_to_name(err));
 }
 
 void WiFiScan::prepareScanStage(uint16_t color_1, uint16_t color_2) {
@@ -4682,6 +4689,11 @@ void WiFiScan::RunPwnScan(uint8_t scan_mode, uint16_t color) {
 #ifdef HAS_NIMBLE_2
 
 void WiFiScan::createNimbleClient() {
+  // NimBLE HCI transport crashes on boot on this board's chip/core combo; bail out instead of crashing.
+  #ifdef MARAUDER_C5_TOUCH_LCD_28
+    Serial.println("Bluetooth not supported on this board");
+    return;
+  #endif
   NimBLEDevice::init("Tracker-Client");
 
   /*
@@ -5217,6 +5229,11 @@ void WiFiScan::executeFindMyLive(uint32_t current_time) {
 }
 
 void WiFiScan::initializeFindMyScan() {
+  // NimBLE HCI transport crashes on boot on this board's chip/core combo; bail out instead of crashing.
+  #ifdef MARAUDER_C5_TOUCH_LCD_28
+    Serial.println("Bluetooth not supported on this board");
+    return;
+  #endif
   NimBLEDevice::init("");
   pBLEScan = NimBLEDevice::getScan();
 
@@ -5240,6 +5257,10 @@ void WiFiScan::initializeFindMyScan() {
 
 void WiFiScan::executeBLESpam(EBLEPayloadType type) {
   #ifdef HAS_BT
+    // NimBLE HCI transport crashes on boot on this board's chip/core combo; bail out instead of crashing.
+    #ifdef MARAUDER_C5_TOUCH_LCD_28
+      return;
+    #endif
     uint32_t now_time = millis();
     uint8_t macAddr[6];
     generateRandomMac(macAddr);
@@ -6294,6 +6315,11 @@ void WiFiScan::RunFindMyLive(uint8_t scan_mode, uint16_t color) {
 
 void WiFiScan::RunSourApple(uint8_t scan_mode, uint16_t color) {
   #ifdef HAS_BT
+    // NimBLE HCI transport crashes on boot on this board's chip/core combo; bail out instead of crashing.
+    #ifdef MARAUDER_C5_TOUCH_LCD_28
+      Serial.println("Bluetooth not supported on this board");
+      return;
+    #endif
     NimBLEDevice::init("");
 
     #ifdef HAS_NIMBLE_2
@@ -6354,6 +6380,11 @@ void WiFiScan::RunSwiftpairSpam(uint8_t scan_mode, uint16_t color) {
 // Function to start running any BLE scan
 void WiFiScan::RunBluetoothScan(uint8_t scan_mode, uint16_t color) {
   #ifdef HAS_BT
+    // NimBLE HCI transport crashes on boot on this board's chip/core combo; bail out instead of crashing.
+    #ifdef MARAUDER_C5_TOUCH_LCD_28
+      Serial.println("Bluetooth not supported on this board");
+      return;
+    #endif
     #ifdef HAS_SCREEN
       display_obj.print_delay_1 = 50;
       display_obj.print_delay_2 = 20;
@@ -8911,9 +8942,10 @@ void WiFiScan::sendDeauthFrame(uint8_t bssid[6], int channel, uint8_t mac[6]) {
   deauth_frame_default[21] = bssid[5];      
 
   // Send packet
-  esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
-  esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
-  esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
+  for (int i = 0; i < 3; i++) {
+    esp_err_t err = esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
+    if (err != ESP_OK) Serial.printf("deauth tx (AP->STA) failed: %s\n", esp_err_to_name(err));
+  }
 
   packets_sent = packets_sent + 3;
 
@@ -8940,9 +8972,10 @@ void WiFiScan::sendDeauthFrame(uint8_t bssid[6], int channel, uint8_t mac[6]) {
   deauth_frame_default[21] = mac[5];      
 
   // Send packet
-  esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
-  esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
-  esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
+  for (int i = 0; i < 3; i++) {
+    esp_err_t err = esp_wifi_80211_tx(WIFI_IF_AP, deauth_frame_default, sizeof(deauth_frame_default), false);
+    if (err != ESP_OK) Serial.printf("deauth tx (STA->AP) failed: %s\n", esp_err_to_name(err));
+  }
 
   packets_sent = packets_sent + 3;
 }

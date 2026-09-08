@@ -248,7 +248,9 @@ void setup()
     digitalWrite(ACT_LED_PIN, LOW);
   #endif
 
-  while(!Serial)
+  // Bounded wait: native USB CDC never becomes "ready" without a host to open
+  // it (e.g. a power bank), so an unbounded wait here would hang boot forever.
+  for (uint32_t serial_wait_start = millis(); !Serial && millis() - serial_wait_start < 3000; )
     delay(10);
 
   // NOTE: skipped on MARAUDER_C5_TOUCH_LCD_28 - SD shares the TFT's physical

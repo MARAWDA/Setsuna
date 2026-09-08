@@ -136,11 +136,11 @@ void EvilPortal::setupServer() {
 
 void EvilPortal::setHtmlFromSerial() {
   Serial.println(F("Setting HTML from serial..."));
-  const char *htmlStr = Serial.readString().c_str();
+  String htmlStr = Serial.readString();
   #ifdef HAS_PSRAM
     index_html = (char*) ps_malloc(MAX_HTML_SIZE);
   #endif
-  strlcpy(index_html, htmlStr, strlen(htmlStr));
+  strlcpy(index_html, htmlStr.c_str(), MAX_HTML_SIZE);
   #ifdef HAS_PSRAM
     index_html[MAX_HTML_SIZE - 1] = '\0';
   #endif
